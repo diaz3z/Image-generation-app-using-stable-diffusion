@@ -11,12 +11,12 @@ app.geometry("1200x720")
 app.title("Stable Diffusion")
 ctk.set_appearance_mode("blue")
 
-logo = Image.open("logo.png")  # Replace 'logo.png' with the path to your logo image
-logo = logo.resize((200, 200))  # Resize the logo to fit the desired area
+logo = Image.open("logo.png")
+logo = logo.resize((200, 200))
 logo_img = ImageTk.PhotoImage(logo)
 
 logo_label = ctk.CTkLabel(master=app, image=logo_img, text="")
-logo_label.place(x=35, y=2)  # Adjust the position as needed
+logo_label.place(x=35, y=-50)
 
 border_frame = ctk.CTkFrame(master=app, height=124, width=516, fg_color="cadetblue3", corner_radius=12)
 border_frame.place(x=358, y=8)

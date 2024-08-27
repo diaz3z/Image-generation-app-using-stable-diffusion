@@ -2,7 +2,7 @@ import tkinter as tk
 import customtkinter as ctk
 from PIL import Image, ImageTk
 import torch
-from torch.cuda.amp import autocast  # Updated import
+from torch.cuda.amp import autocast
 from diffusers import StableDiffusionPipeline
 
 app = tk.Tk()
@@ -10,10 +10,17 @@ app.geometry("532x632")
 app.title("Mohammad Zaid")
 ctk.set_appearance_mode("dark")
 
+logo = Image.open("logo.png")
+logo = logo.resize((150, 150))
+logo_img = ImageTk.PhotoImage(logo)
+
+logo_label = ctk.CTkLabel(master=app, image=logo_img, text="")
+logo_label.place(x=35, y=0)
+
 promt = ctk.CTkEntry(master=app, height=40, width=512, corner_radius=10, font=("Arial", 20), text_color="black", fg_color="white")
 promt.place(x=10, y=10)
 
-lmain = ctk.CTkLabel(master=app, height=512, width=512, text="")  # Change to CTkLabel for displaying images
+lmain = ctk.CTkLabel(master=app, height=512, width=512, text="")
 lmain.place(x=10, y=110)
 
 trigger = ctk.CTkButton(master=app, height=40, width=120, corner_radius=10, font=("Arial", 20), text_color="white", fg_color="gray", text="Generate", command=lambda: generate())  # Add command to button
